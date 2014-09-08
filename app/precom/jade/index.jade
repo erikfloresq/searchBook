@@ -1,13 +1,38 @@
 doctype
-body
+html(lang="es")
 	head
-		title Skeletor
+		meta(charset="utf-8")
+		title Search Books
+		meta(name="description",content="Help you search main books on itebooks.net")
+		meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
 		link(rel="stylesheet",href="bower_components/normalize-css/normalize.css")
+		link(rel="stylesheet",href="bower_components/bootstrap/dist/css/bootstrap.min.css")
+		link(rel="stylesheet",href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css")
 		link(rel="stylesheet",href="css/style.css")
 		script(src="bower_components/html5shiv/dist/html5shiv.min.js")
-	body
-		.content
-			- for(i=0;i<=20;i++)
-				div.item
-		script(src="bower_components/jquery/dist/jquery.min.js")
+	body(ng-app="SearchBook")
+		.container(ng-controller="search")
+			h3 Search a Book
+			form(ng-submit="searchBook()",role="form")
+				.form-group.mini-search
+					label(for="nameBook") Name Book
+					input#nameBook(ng-model="nameBook",type="text",class="form-control",placeholder="ejem: javascript")
+				.form-group.btn-mini-search
+					button.btn.btn-default(type="submit") Buscar
+			table.table.table-striped
+				thead
+					tr
+						th Portrait
+						th Name
+						th Description
+				tbody
+					tr(ng-repeat="book in books")
+						td
+							img(src="{{book.Image}}",alt="{{book.Title}}",width="100")
+						td 
+							strong {{book.Title}}
+							span {{book.SubTitle}}
+						td {{book.Description}}
+
+		script(src="bower_components/angular/angular.min.js")
 		script(src="js/script.js")
