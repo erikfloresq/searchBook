@@ -7,8 +7,10 @@ app.controller 'search', ['$scope','$http', ($scope,$http)->
 		)
 		.success((data, status, headers, config)->
 			$scope.books = data.Books
+			return
 		)
 		.error((data, status, headers, config)->
-
+			return
 		)
+		return
 ]

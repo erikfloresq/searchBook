@@ -47,7 +47,3 @@ table strong {
 .btn-mini-search:last-child {
   margin-right: 0%;
 }
-.modal-dialog {
-  position: relative;
-  z-index: 2000;
-}

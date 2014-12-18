@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
   </head>
@@ -32,15 +33,13 @@
         </thead>
         <tbody>
           <tr ng-repeat="book in books">
-            <td><a href="javascript:;" ng-click="showDetail()" data-target="#myModal" data-id="{{ book.ID }}"><img src="{{book.Image}}" alt="{{book.Title}}" width="100"></a></td>
+            <td><img src="{{book.Image}}" alt="{{book.Title}}" width="100"></td>
             <td> <strong>{{book.Title}}</strong><span>{{book.SubTitle}}</span></td>
             <td>{{book.Description}}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="js/script.js"></script>
   </body>

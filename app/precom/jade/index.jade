@@ -7,7 +7,6 @@ html(lang="es")
 		meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
 		link(rel="stylesheet",href="bower_components/normalize-css/normalize.css")
 		link(rel="stylesheet",href="bower_components/bootstrap/dist/css/bootstrap.min.css")
-		link(rel="stylesheet",href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css")
 		link(rel="stylesheet",href="css/style.css")
 		script(src="bower_components/html5shiv/dist/html5shiv.min.js")
 	body(ng-app="SearchBook")
@@ -28,11 +27,26 @@ html(lang="es")
 				tbody
 					tr(ng-repeat="book in books")
 						td
-							img(src="{{book.Image}}",alt="{{book.Title}}",width="100")
+							a(href="javascript:;" ng-click="showDetail()" data-target="#myModal" data-id="{{ book.ID }}")
+								img(src="{{book.Image}}",alt="{{book.Title}}",width="100")
 						td 
 							strong {{book.Title}}
 							span {{book.SubTitle}}
 						td {{book.Description}}
-
+		#myModal.modal.fade(tabindex='-1', aria-labelledby='myModalLabel', aria-hidden='true', ng-controller="showData")
+			.modal-dialog
+				.modal-content
+					.modal-header
+						button.close(type='button', data-dismiss='modal')
+							span(aria-hidden='true') ×
+							span.sr-only Close
+						h4#myModalLabel.modal-title Modal title
+					.modal-body(ng-repeat="detail in Details")
+						| {{ detail.Title }}
+					.modal-footer
+						button.btn.btn-default(type='button', data-dismiss='modal') Close
+						button.btn.btn-primary(type='button') Save changes
+		script(src="bower_components/jquery/dist/jquery.min.js")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js")
 		script(src="bower_components/angular/angular.min.js")
 		script(src="js/script.js")

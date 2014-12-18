@@ -4,7 +4,7 @@ app = angular.module('SearchBook', []);
 
 app.controller('search', [
   '$scope', '$http', function($scope, $http) {
-    return $scope.searchBook = function() {
+    $scope.searchBook = function() {
       $http({
         method: 'GET',
         url: 'http://it-ebooks-api.info/v1/search/' + $scope.nameBook
