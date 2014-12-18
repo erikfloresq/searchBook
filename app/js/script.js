@@ -4,7 +4,7 @@ app = angular.module('SearchBook', []);
 
 app.controller('search', [
   '$scope', '$http', function($scope, $http) {
-    return $scope.searchBook = function() {
+    $scope.searchBook = function() {
       $http({
         method: 'GET',
         url: 'http://it-ebooks-api.info/v1/search/' + $scope.nameBook
@@ -12,5 +12,14 @@ app.controller('search', [
         $scope.books = data.Books;
       }).error(function(data, status, headers, config) {});
     };
+    $scope.showDetail = function(idBook){
+      $http({
+        method: 'GET',
+        url : 'http://it-ebooks-api.info/v1/'+'book/'+idBook
+      }).success(function(data, status, headers, config) {
+        $scope.details = data;
+        $('#myModal').modal();
+      }).error(function(data, status, headers, config) {});
+    }
   }
 ]);
