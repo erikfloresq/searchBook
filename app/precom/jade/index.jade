@@ -33,19 +33,32 @@ html(lang="es")
 							strong {{book.Title}}
 							span {{book.SubTitle}}
 						td {{book.Description}}
-		#myModal.modal.fade(tabindex='-1', aria-labelledby='myModalLabel', aria-hidden='true', ng-controller="showData")
+		#myModal.modal.fade(tabindex='-1', aria-labelledby='myModalLabel', aria-hidden='true')
 			.modal-dialog
 				.modal-content
-					.modal-header
-						button.close(type='button', data-dismiss='modal')
-							span(aria-hidden='true') ×
-							span.sr-only Close
-						h4#myModalLabel.modal-title Modal title
-					.modal-body(ng-repeat="detail in Details")
-						| {{ detail.Title }}
-					.modal-footer
-						button.btn.btn-default(type='button', data-dismiss='modal') Close
-						button.btn.btn-primary(type='button') Save changes
+				  .modal-header
+					button.close(type='button', data-dismiss='modal')
+					  span(aria-hidden='true') &times;
+					  span.sr-only Close
+					|               
+					h3#myModalLabel.modal-title {{ details.Title }}
+					|               
+					span {{ details.SubTitle }}
+				  |             
+				  .modal-body
+					.row
+					  .col-md-5
+						img(src='{{ details.Image }}')
+					  |                 
+					  .col-md-7
+						h3 {{ details.Author }}
+						|                   
+						p {{ details.Description }}
+				  |             
+				  .modal-footer
+					button.btn.btn-default(type='button', data-dismiss='modal') Cerrar
+					|               
+					a.btn.btn-primary(href='{{ details.Download }}') Descargar
 		script(src="bower_components/jquery/dist/jquery.min.js")
 		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js")
 		script(src="bower_components/angular/angular.min.js")

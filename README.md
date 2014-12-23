@@ -1,8 +1,20 @@
 
+
 Search Book
 --------
 
-Es un ejemplo realizado en angularjs sobre un buscador de libros usando la api de [it-ebooks.](http://it-ebooks-api.info/)
+Es un ejemplo realizado en angularjs sobre un buscador de libros 
+
+Se esta usando 
+- La api de [it-ebooks.](http://it-ebooks-api.info/)
+- Angularjs
+- Jade
+- Stylus
+- CoffeeScript
+- Gulpjs
+
+En el gulpfile.js se encuentra todas la configuraciones de la aplicación, la aplicación se encuentra en la carpeta app según se configuro en el gulpfile.js
+
 
 ![Buscador](http://i.imgur.com/q1Hcw8X.png)
 
